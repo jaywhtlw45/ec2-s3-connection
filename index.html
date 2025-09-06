@@ -1,8 +1,20 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Connection Made</title>
+    </head>
+    <body>
+        <h1>Connection Made</h1>
+        <label for="file">Choose a File</label>
+        <input type="file" id="fileInput" class="fileInput" multiple />
+        <button class="button" onclick="uploadFile()">Upload File</button>
 
-<h1>Connection Established</h1>
-
-</body>
+        <script>
+            const fileEl = document.getElementById("fileInput");
+            async function uploadFile() {
+                console.log("fileEl", fileEl);
+            }
+        </script>
+    </body>
 </html>
