@@ -11,9 +11,13 @@
         <button class="button" onclick="uploadFile()">Upload File</button>
 
         <script>
-            const fileEl = document.getElementById("fileInput");
+            const fileInput = document.getElementById("fileInput");
             async function uploadFile() {
-                console.log("fileEl", fileEl);
+                if (fileInput.files) {
+                    console.log(fileInput.files[0]);
+                } else {
+                    alert("No files selected");
+                }
             }
         </script>
     </body>
