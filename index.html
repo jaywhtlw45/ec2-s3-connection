@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Connection Made</title>
-    </head>
-    <body>
-        <h1>Connection Made</h1>
-        <label for="file">Choose a File</label>
-        <input type="file" id="fileInput" class="fileInput" multiple />
-        <button class="button" onclick="uploadFile()">Upload File</button>
 
-        <script>
-            const fileInput = document.getElementById("fileInput");
-            async function uploadFile() {
-		console.log(fileInput.files);
-		console.log(fileInput.files.length);
-		    if (fileInput.files.length > 0) {
-                    console.log(fileInput.files[0]);
-                } else {
-                    alert("No files selected");
-                }
+<head>
+    <meta charset="UTF-8" />
+    <title>Connection Made</title>
+</head>
+
+<body>
+    <h1>Connection Made</h1>
+    <label for="file">Choose a File</label>
+    <input type="file" id="fileInput" class="fileInput" />
+    <!-- <input type="file" id="fileInput" class="fileInput" multiple /> -->
+    <button class="button" onclick="uploadFile()">Upload File</button>
+
+    <script>
+        async function uploadFile() {
+            if (fileInput.files.length > 0) {
+                console.log(fileInput.files[0]);
+            } else {
+                alert("No files selected");
+                return;
             }
-        </script>
-    </body>
+        }
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+
+        try {
+            const response = await fetch('/app/routes/fileUpload.php', {
+                method: 'POST',
+                body: formData
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    </script>
+</body>
+
 </html>
