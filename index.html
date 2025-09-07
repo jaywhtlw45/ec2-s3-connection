@@ -13,7 +13,9 @@
         <script>
             const fileInput = document.getElementById("fileInput");
             async function uploadFile() {
-                if (fileInput.files) {
+		console.log(fileInput.files);
+		console.log(fileInput.files.length);
+		    if (fileInput.files.length > 0) {
                     console.log(fileInput.files[0]);
                 } else {
                     alert("No files selected");
