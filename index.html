@@ -34,7 +34,8 @@
             } catch (error) {
                 console.log(error);
             }
-	    console.log(response);
+        const result = await response.json();
+	    console.log(result);
         } 
     </script>
 </body>
