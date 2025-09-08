@@ -1,0 +1,114 @@
+# Dependencies
+/node_modules/
+/vendor/
+composer.phar
+
+# Build outputs
+/dist/
+/build/
+/public/build/
+/public/hot
+/public/storage
+/storage/*.key
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.backup
+.phpenv
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+/storage/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# PHP specific
+*.cache
+/bootstrap/cache/
+/storage/app/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/framework/testing/
+
+# Composer
+# composer.lock should be committed to ensure consistent dependencies
+
+# Laravel Mix / Webpack
+/public/css/
+/public/js/
+/public/mix-manifest.json
+mix-manifest.json
+
+# Vue.js specific
+.nuxt/
+.output/
+.nitro/
+
+# Testing
+/coverage/
+/.nyc_output/
+phpunit.xml
+.phpunit.result.cache
+
+# Database
+*.sqlite
+*.db
+
+# Cache
+.cache/
+*.tgz
+*.tar.gz
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn
+# yarn.lock should be committed to ensure consistent dependencies
+.yarn-integrity
+.pnp
+.pnp.js
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Images (if you don't want to track uploads)
+/public/uploads/
+/storage/app/public/uploads/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation
+/docs/build/
