@@ -1,9 +1,10 @@
 <?php
 if ($_SERVER['REQUEST_METHOD']==='POST') {
-    error_log(json_encode($_POST));
+    error_log("request made");
     
     $response = [];
     if (isset($_FILES["file"])){
+        error_log("file recieved");
         $file = $_FILES["file"];
         $response["filename"] = $file["name"];
         $response["filetype"] = $file["type"];
