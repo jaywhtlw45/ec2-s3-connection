@@ -5,6 +5,6 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     http_response_code(200);
     header('Content-Type: application/json');
     $response = ["message"=>"success", "car"=>"toyota"];
-    echo json_encode($respone);
+    echo json_encode($response);
 }
 ?>
