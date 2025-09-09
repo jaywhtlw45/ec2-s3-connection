@@ -32,7 +32,7 @@
                     method: 'POST',
                     body: formData
                 })
-                const result = await response.status;
+                const result = await response.json();
                 console.log(result);
             } catch (error) {
                 console.log("Error!!!");
