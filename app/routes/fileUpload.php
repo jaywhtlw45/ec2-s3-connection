@@ -2,8 +2,9 @@
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     error_log(json_encode($_POST));
     
-    if (isset($_POST["file"])){
-        error_log("a file exists");
+    if (isset($_FILES["file"])){
+        $file = $_FILES["file"];
+        error_log($file);
     }
     // Response
     http_response_code(200);
