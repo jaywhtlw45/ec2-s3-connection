@@ -1,10 +1,6 @@
 <?php
-error_log("request recieved");
-
 if ($_SERVER['REQUEST_METHOD']==='POST') {
-    // error_log("server: " . json_encode($_SERVER));
-
-    $log_location=ini_get("error_log");
+    error_log(json_encode($_POST));
     // Response
     http_response_code(200);
     header('Content-Type: application/json');
