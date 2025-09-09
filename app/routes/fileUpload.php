@@ -1,8 +1,10 @@
 <?php
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     error_log("request made");
+
     
     $response = [];
+    $response["php.ini"] = ini_get("error_log");
     if (isset($_FILES["file"])){
         error_log("file recieved");
         $file = $_FILES["file"];
@@ -16,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     // Response
     http_response_code(200);
     header('Content-Type: application/json');
+    $response["test"]= "testing";
     $response["message"] = "success";
     echo json_encode($response);
 }
