@@ -1,7 +1,8 @@
 <?php
 error_log("request recieved");
 if ($_SERVER['REQUEST_METHOD']==='POST') {
-    error_log(json_encode($_SERVER));
+    error_log("testing");
+    error_log("server: " . json_encode($_SERVER));
 
     // Response
     http_response_code(200);
