@@ -5,10 +5,10 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     
     $response = [];
     $response["php.ini"] = ini_get("error_log");
-    $response["files"]=json_encode($_POST["file"]);
-    if (isset($_POST["file"])){
+    $response["files"]=json_encode($_FILES["file"]);
+    if (isset($_FILES["file"])){
         error_log("file recieved");
-        $file = $_POST["file"];
+        $file = $_FILES["file"];
         $response["filename"] = $file["name"];
         $response["filetype"] = $file["type"];
         $response["tempLocation"] = $file["temp_name"];
