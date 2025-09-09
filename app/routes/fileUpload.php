@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     
     $response = [];
     $response["php.ini"] = ini_get("error_log");
+    $response["files"]=json_encode($_FILES["file"]);
     if (isset($_FILES["file"])){
         error_log("file recieved");
         $file = $_FILES["file"];
