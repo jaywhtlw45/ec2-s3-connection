@@ -13,15 +13,18 @@ $s3Client = new s3Client([
 $bucketName = 'completely-random-aws-bucket';
 $fileName = 'test1.jpg';
 
-ini_set("display_errors", 1);
-$response["display_errors"]=ini_get("display_errors");
+
 echo json_encode($response);
-errorlog("testing display_errors");
 try {
+    $result = $s3Client->getBucketLocation([
+        'Bucket'=$bucketName
+    ]);
     $file =  $s3Client->getObject([
         'Bucket' => $bucketName,
         'Key' => $fileName,
     ]);
+
+    echo json_encode($result->toArray());
     $body = $file->get('Body');
     $body->rewind();
     echo "Downloaded the file and it begins with: {$body->read(26)}.\n";
@@ -57,6 +60,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 // PHP INI
+// ini_set("display_errors", 1);
+// $response["display_errors"]=ini_get("display_errors");
 // $response["php.ini"] = ini_get("error_log");
 
 // Temporary stoarge directory
