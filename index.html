@@ -24,7 +24,7 @@
             }
 
             const formData = new FormData();
-            formData.append("file", fileInput.files[0]);
+            formData.append("realFile", fileInput.files[0]);
 
 
             try {
@@ -34,8 +34,8 @@
                 })
                 const result2 = await response.status;
                 const result = await response.json();
-                console.log("status", result);
-                console.log("json", result2);
+                console.log("json", result);
+                console.log("status", result2);
             } catch (error) {
                 console.log("Error!!!");
                 console.log(error);
