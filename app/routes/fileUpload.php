@@ -13,6 +13,9 @@ $s3Client = new s3Client([
 $bucketName = 'completely-random-aws-bucket';
 $fileName = 'test1.jpg';
 
+$response["display_errors"]=ini_get("display_errors");
+echo json_encode($response);
+
 try {
     $file =  $s3Client->getObject([
         'Bucket' => $bucketName,
