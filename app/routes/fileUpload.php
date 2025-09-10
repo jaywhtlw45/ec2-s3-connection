@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         $response["error"] = $file["error"];
     }
 
+    sleep(20);
+
     // Response
     http_response_code(200);
     header('Content-Type: application/json');
