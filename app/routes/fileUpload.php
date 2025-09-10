@@ -17,7 +17,7 @@ $fileName = 'test1.jpg';
 echo json_encode($response);
 try {
     $result = $s3Client->getBucketLocation([
-        'Bucket'=$bucketName
+        'Bucket'=>$bucketName
     ]);
     $file =  $s3Client->getObject([
         'Bucket' => $bucketName,
