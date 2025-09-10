@@ -20,11 +20,12 @@ try {
         'Bucket' => $bucketName,
         'Key' => $fileName,
     ]);
+    echo "hello3";
     $body = $file->get('Body');
     $body->rewind();
     echo "Downloaded the file and it begins with: {$body->read(26)}.\n";
 } catch (Exception $exception) {
-    echo "Failed to download $fileName from $this->bucketName with error: " . $exception->getMessage();
+    echo "Failed to download $fileName from $bucketName with error: " . $exception->getMessage();
     exit("Please fix error with file downloading before continuing.");
 }
 
