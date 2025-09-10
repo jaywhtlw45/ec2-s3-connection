@@ -1,4 +1,5 @@
 <?php
+// need to determine what object is holding the file and how to access. potentially the frontend is sending the object incorrectly.
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     error_log("request made");
 
