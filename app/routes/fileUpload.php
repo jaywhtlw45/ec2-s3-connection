@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         $file = $_FILES["realFile"];
         $response["filename"] = $file["name"];
         $response["filetype"] = $file["type"];
-        $response["tempLocation"] = $file["temp_name"];
+        $response["tempLocation"] = $file["tmp_name"];
         $response["size"] = $file["size"];
         $response["error"] = $file["error"];
     }
