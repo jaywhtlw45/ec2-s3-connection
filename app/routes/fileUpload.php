@@ -10,12 +10,12 @@ $s3Client = new s3Client([
     'version' => 'latest'
 ]);
 
-echo "hello";
 $bucketName = 'completely-random-aws-bucket';
 $fileName = 'test.jpg';
 
 echo "hello2";
 try {
+    echo "hello2.5";
     $file = $this->s3client->getObject([
         'Bucket' => $bucketName,
         'Key' => $fileName,
