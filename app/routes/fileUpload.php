@@ -16,7 +16,7 @@ $fileName = 'test.jpg';
 echo "hello2";
 try {
     echo "hello2.5";
-    $file = $this->s3client->getObject([
+    $file =  $s3Client->getObject([
         'Bucket' => $bucketName,
         'Key' => $fileName,
     ]);
