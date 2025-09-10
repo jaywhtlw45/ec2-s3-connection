@@ -1,14 +1,39 @@
 <?php
 // need to determine what object is holding the file and how to access. potentially the frontend is sending the object incorrectly.
-if ($_SERVER['REQUEST_METHOD']==='POST') {
+require '../../vendor/autoload.php';
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+
+$s3Client = new s3Client([
+    'region' => 'us-west-1',
+    'version' => 'latest'
+]);
+
+$bucketName = 'completely-random-aws-bucket';
+$fileName = 'test.jpg';
+
+try {
+    $file = $this->s3client->getObject([
+        'Bucket' => $bucketName,
+        'Key' => $fileName,
+    ]);
+    $body = $file->get('Body');
+    $body->rewind();
+    echo "Downloaded the file and it begins with: {$body->read(26)}.\n";
+} catch (Exception $exception) {
+    echo "Failed to download $fileName from $this->bucketName with error: " . $exception->getMessage();
+    exit("Please fix error with file downloading before continuing.");
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     error_log("request made");
 
-    
+
     $response = [];
-    $response["sys_get_temp_dir"] = sys_get_temp_dir();
-    $response["php.ini"] = ini_get("error_log");
-    $response["files"]=json_encode($_FILES["file"]);
-    if (isset($_FILES["file"])){
+    $response["files"] = json_encode($_FILES["file"]);
+    if (isset($_FILES["file"])) {
         error_log("file recieved");
         $file = $_FILES["file"];
         $response["filename"] = $file["name"];
@@ -18,13 +43,28 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         $response["error"] = $file["error"];
     }
 
-    sleep(20);
 
     // Response
     http_response_code(200);
     header('Content-Type: application/json');
-    $response["test"]= "testing";
     $response["message"] = "success";
+
     echo json_encode($response);
 }
-?>
+
+// PHP INI
+// $response["php.ini"] = ini_get("error_log");
+
+// Temporary stoarge directory
+// $response["sys_get_temp_dir"] = sys_get_temp_dir();
+
+// File Properties
+// if (isset($_FILES["file"])){
+// error_log("file recieved");
+// $file = $_FILES["file"];
+// $response["filename"] = $file["name"];
+// $response["filetype"] = $file["type"];
+// $response["tempLocation"] = $file["tmp_name"];
+// $response["size"] = $file["size"];
+// $response["error"] = $file["error"];
+// }
