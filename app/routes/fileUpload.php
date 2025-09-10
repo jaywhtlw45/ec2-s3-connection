@@ -16,7 +16,7 @@ $fileName = 'test1.jpg';
 ini_set("display_errors", 1);
 $response["display_errors"]=ini_get("display_errors");
 echo json_encode($response);
-
+error_log("testing display_errors");
 try {
     $file =  $s3Client->getObject([
         'Bucket' => $bucketName,
