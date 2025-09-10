@@ -11,16 +11,13 @@ $s3Client = new s3Client([
 ]);
 
 $bucketName = 'completely-random-aws-bucket';
-$fileName = 'test.jpg';
+$fileName = 'test1.jpg';
 
-echo "hello2";
 try {
-    echo "hello2.5";
     $file =  $s3Client->getObject([
         'Bucket' => $bucketName,
         'Key' => $fileName,
     ]);
-    echo "hello3";
     $body = $file->get('Body');
     $body->rewind();
     echo "Downloaded the file and it begins with: {$body->read(26)}.\n";
