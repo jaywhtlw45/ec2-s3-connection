@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     $response = [];
     $response["sys_get_temp_dir"] = sys_get_temp_dir();
     $response["php.ini"] = ini_get("error_log");
-    $response["files"]=json_encode($_FILES["realFile"]);
+    $response["files"]=json_encode($_FILES["file"]);
     if (isset($_FILES["file"])){
         error_log("file recieved");
-        $file = $_FILES["realFile"];
+        $file = $_FILES["file"];
         $response["filename"] = $file["name"];
         $response["filetype"] = $file["type"];
         $response["tempLocation"] = $file["tmp_name"];
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         $response["error"] = $file["error"];
     }
 
-    // sleep(20);
+    sleep(20);
 
     // Response
     http_response_code(200);
